@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         .mobile-hidden {
             display: none;
@@ -138,6 +139,42 @@
         .page.active {
             display: block;
         }
+
+        /* Carousel Navigation */
+        .carousel-arrow {
+          transition: all 0.3s ease;
+          padding: 0.5rem;
+        }
+        
+        .carousel-arrow:hover {
+          transform: scale(1.2);
+        }
+        
+        .carousel-arrow.hidden {
+          visibility: hidden;
+          opacity: 0;
+        }
+        
+        /* Dots container */
+        .flex.space-x-2 {
+          margin: 0 0.5rem;
+        }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+          .carousel-arrow svg {
+            height: 1.25rem;
+            width: 1.25rem;
+          }
+          
+          .carousel-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+          }
+        }
+        
+
+        
     </style>
 </head>
 <body class="bg-gray-50">
@@ -245,7 +282,7 @@
                          <p class="text-gray-700 mb-4">
                              Our operations treated over 200000 cubic meter of industrial processed water.
                          </p>
-                         <p class="text-gray-700 mb-4">
+                         <p class="hidden md:block text-gray-700 mb-4">
                               At Akshar Jal, we combine industry-leading technology with time-tested methods to ensure clean, safe, and sustainable water solutions. Our facilities are optimized for energy efficiency, automation, and rigorous quality monitoring.
                          </p>
                     </div>         
@@ -271,7 +308,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="hidden md:block bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                         <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
                             <i class="fas fa-hand-holding-water text-xl"></i>
                         </div>
@@ -296,8 +333,9 @@
 
         <!-- Services Section -->
         <section class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:text-center">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="text-center">
+                    
                     <h2 class="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
                         <span class="relative z-10">Our Services</span>
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-200 -z-1" style="bottom: 5px;"></span>
@@ -307,7 +345,7 @@
                     </p>
                 </div>
 
-                <div class="mt-12 grid gap-8 md:grid-cols-3" id="services-grid">
+                <div class="mt-12 hidden md:grid gap-8 md:grid-cols-3" id="services-grid">
                     <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300 text-center mobile-hidden">
                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
                             <i class="fas fa-home text-2xl"></i>
@@ -356,14 +394,99 @@
                         <p class="text-gray-600">
                             We offer customized training programs to help utilities and professionals build skills, meet certification requirements, and stay current with regulations.
                         </p>
+                    </div>     
+                </div>
+
+                <!-- Mobile Carousel (shown only on mobile) -->
+                <div class="md:hidden relative overflow-hidden">
+                  <div class="services-carousel flex overflow-x-auto snap-x snap-mandatory scroll-smooth py-4 -mx-4 px-4" style="scrollbar-width: none;">
+                   
+                    <div class="service-slide flex-none snap-center w-[85vw] mx-2">
+                      <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
+                          <i class="fas fa-home text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Operations & Maintenance</h3>
+                        <p class="text-gray-600">
+                          We ensure waste water systems run efficiently around the clock.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div class="service-slide flex-none snap-center w-[85vw] mx-2">
+                      <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
+                          <i class="fas fa-industry text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Project Management</h3>
+                        <p class="text-gray-600">
+                          From planning to execution, our team leads complex industrial waste water projects.
+                        </p>
+                      </div>
                     </div>
 
+                    <div class="service-slide flex-none snap-center w-[85vw] mx-2">
+                      <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
+                          <i class="fas fa-industry text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Infrastructure Support</h3>
+                        <p class="text-gray-600">
+                          We support the maintenance and upgrade of treatment plants, storage tanks, valves, meters, and other critical infrastructure components.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="service-slide flex-none snap-center w-[85vw] mx-2">
+                      <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
+                          <i class="fas fa-industry text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Data Management</h3>
+                        <p class="text-gray-600">
+                          We leverage smart data tools to monitor systems, ensure compliance, and guide decision-making with dashboards and analytics platforms.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="service-slide flex-none snap-center w-[85vw] mx-2">
+                      <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4 mx-auto">
+                          <i class="fas fa-industry text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Training & Capacity Building</h3>
+                        <p class="text-gray-600">
+                          We offer customized training programs to help utilities and professionals build skills, meet certification requirements, and stay current with regulations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation dots -->
+                  <!-- Inside your services section, replace the dots div with this: -->
+                  <div class="flex items-center justify-center mt-6 space-x-4">
+                    <!-- Left arrow (hidden on first slide) -->
                     
+                    
+                    <!-- Navigation dots -->
+                    <div class="flex space-x-2">
+                        <span class="md:hidden">Swipe to see more</span>
+                    
+                    </div>
+                    
+                    <!-- Right arrow (hidden on last slide) -->
+                    <button class="carousel-arrow right-arrow" aria-label="Next service">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-blue-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
+                
                
                 <div class="mt-12 text-center">
                   <a href="#" class="inline-block text-white text-lg font-bold py-4 px-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 hover:from-blue-700 hover:to-cyan-500 transition shadow-lg" data-page="services">
-                    View More Services
+                    Explore All Services
                   </a>
                 </div>
             </div>
@@ -1131,6 +1254,79 @@
                 // Scroll to top
                 window.scrollTo(0, 0);
             });
+        });
+
+        // Update your existing carousel script with these changes:
+        // Add these variables at the top
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        
+        // Modify the updateDots function to handle arrows too
+        function updateDots(index) {
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+          
+          // Show/hide arrows based on position
+          if (index === 0) {
+            leftArrow.classList.add('hidden');
+          } else {
+            leftArrow.classList.remove('hidden');
+          }
+          
+          if (index === slideCount - 1) {
+            rightArrow.classList.add('hidden');
+          } else {
+            rightArrow.classList.remove('hidden');
+          }
+        }
+        
+        // Add arrow event listeners
+        leftArrow.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+          }
+        });
+        
+        rightArrow.addEventListener('click', () => {
+          if (currentIndex < slideCount - 1) {
+            goToSlide(currentIndex + 1);
+          }
+        });
+        
+        // Update the goToSlide function to handle edge cases
+        function goToSlide(index) {
+          if (index < 0 || index >= slideCount) return;
+          
+          currentIndex = index;
+          const slide = slides[index];
+          carousel.scrollTo({
+            left: slide.offsetLeft - carousel.offsetLeft,
+            behavior: 'smooth'
+          });
+          updateDots(index);
+        }
+
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+          button.addEventListener('click', () => {
+            const faqItem = button.closest('.faq-item');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = button.querySelector('i');
+            
+            // Toggle content visibility
+            content.classList.toggle('hidden');
+            
+            // Rotate icon
+            icon.classList.toggle('rotate-180');
+            
+            // Optional: Close other open FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+              if (item !== faqItem) {
+                item.querySelector('.faq-content').classList.add('hidden');
+                item.querySelector('i').classList.remove('rotate-180');
+              }
+            });
+          });
         });
 
         // Water animation for hero section
